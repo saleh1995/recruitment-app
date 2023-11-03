@@ -54,4 +54,11 @@ class JobListing extends Model
     {
         return $this->belongsTo(User::class, 'employer_id');
     }
+
+
+    //this relation is to get all the applications for this job
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
 }
