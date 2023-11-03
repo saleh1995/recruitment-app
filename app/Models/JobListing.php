@@ -23,6 +23,7 @@ class JobListing extends Model
         'employemnt_type',
         'status',
         'posted_at',
+        'expires_at',
     ];
 
 
@@ -42,6 +43,7 @@ class JobListing extends Model
         'employemnt_type' => 'integer',
         'status' => 'boolean',
         'posted_at' => 'datetime',
+        'expires_at' => 'datetime',
     ];
 
 
