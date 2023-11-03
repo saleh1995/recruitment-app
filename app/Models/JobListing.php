@@ -45,5 +45,11 @@ class JobListing extends Model
     ];
 
 
-    
+    //relations
+
+    //this relation is to know which employer has posted this job
+    public function employer()
+    {
+        return $this->belongsTo(User::class, 'employer_id');
+    }
 }
