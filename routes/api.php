@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApplicationController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\JobListingController;
 use Illuminate\Http\Request;
@@ -36,3 +37,8 @@ Route::group([
 
 
 Route::apiResource('jobs', JobListingController::class)->middleware('auth');
+Route::apiResource('applications', ApplicationController::class)->middleware('auth');
+Route::prefix('applications')->group(function(){
+    Route::post('{application}/update/cv', [ApplicationController::class, 'updateCvField']);
+    Route::put('{application}/update/accepted', [ApplicationController::class, 'updateAcceptedField']);
+});

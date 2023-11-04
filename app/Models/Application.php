@@ -19,6 +19,7 @@ class Application extends Model
         'job_listing_id',
         'letter',
         'cv',
+        'accepted'
     ];
 
 

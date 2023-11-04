@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('job_listing_id')->constrained()->cascadeOnDelete();
             $table->text('letter');
             $table->string('cv');
+            $table->tinyInteger('accepted')->default(0)->comment('0-waiting, 1-accepted, 2-not accepted');
             $table->timestamps();
         });
     }

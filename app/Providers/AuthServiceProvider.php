@@ -33,9 +33,15 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
-        // authorization for preforming actions on joblistings
+        // authorization for preforming actions on joblistings by employers
         Gate::define('job-listing', function($user, $job){
             return $user->id == $job->employer_id;
         });
+
+        // authorization for preforming actions on applications by job seeker
+        Gate::define('job-seeker-application', function($user, $application){
+            return $user->id == $application->job_seeker_id;
+        });
+
     }
 }
