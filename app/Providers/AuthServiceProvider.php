@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,14 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // authorization for job seeker user type
+        Gate::define('job-seeker', function($user){
+            return $user->type == 1;
+        });
+
+        // authorization for employer user type
+        Gate::define('employer', function($user){
+            return $user->type == 2;
+        });
     }
 }
