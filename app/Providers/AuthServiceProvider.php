@@ -31,5 +31,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('employer', function($user){
             return $user->type == 2;
         });
+
+
+        // authorization for preforming actions on joblistings
+        Gate::define('job-listing', function($user, $job){
+            return $user->id == $job->employer_id;
+        });
     }
 }
