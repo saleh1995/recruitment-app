@@ -15,7 +15,7 @@ class JobListingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'employer_id' => $this->employer,
+            'employer_id' => $this->employer ? UserResource::make($this->employer) : null,
             'title' => $this->title,
             'description' => $this->description,
             'location' => $this->location,
